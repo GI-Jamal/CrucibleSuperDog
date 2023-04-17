@@ -1,0 +1,113 @@
+:root {
+  /* Fonts */
+  --jg-title-font: "Bebas Neue", sans-serif;
+  --jg-subtitle-font: "Fira Sans", sans-serif;
+  --jg-heading-font: "Bebas Neue", sans-serif;
+  --jg-body-font: "Roboto", sans-serif;
+
+  /* Colors */
+  --jg-primary-color: rgb(145, 203, 251);
+  --jg-secondary-color: rgb(66, 148, 186);
+  --jg-highlight-color: rgb(250, 225, 120);
+  --jg-dark-color: #212121;
+  --jg-light-color: #deeefb;
+  --jg-background-color: rgba(250, 250, 250, 0.8);
+
+  /* Nav bar colors */
+  --jg-nav-bg-color: var(--jg-dark-color);
+  --jg-nav-toggler-color: var(--jg-highlight-color);
+  --jg-nav-toggler-glow: rgba(250, 255, 120, 0.55);
+
+  /* Form colors */
+  --jg-formfocus-border-color: var(--jg-secondary-color);
+  --jg-formfocus-shadow: var(--jg-primary-color);
+  --jg-form-background-color: var(--jg-background-color);
+
+  /* Text styles */
+  --jg-title-color: var(--jg-dark-color);
+  --jg-font-size: 1.2rem;
+  --jg-font-weight: 400;
+  --jg-line-height: 1.5rem;
+}
+
+/*
+font-family: 'Allan', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+
+/* START: Nav Bar*/
+.navbar-toggler-jg {
+  color: var(--jg-nav-toggler-color);
+  font-size: 1.5rem;
+}
+
+.navbar-toggler {
+  color: var(--jg-nav-toggler-glow);
+}
+
+#mainNav {
+  background: var(--jg-nav-bg-color);
+}
+/* END: Nav Bar*/
+
+/* START: Sticky Footer */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--jg-body-font);
+  font-size: var(--jg-font-size);
+  font-weight: var(--jg-font-weight);
+  line-height: var(--jg-line-height);
+  color: var(--jg-dark-color);
+  background: var(--jg-background-color);
+}
+
+main {
+  flex-grow: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+/* END: Sticky Footer */
+
+/* START: Footer */
+.socialicons {
+  font-size: 1.5rem;
+  color: var(--jg-secondary-color);
+  transition: color 0.25s;
+}
+
+.socialicons:hover {
+  color: var(--jg-highlight-color);
+}
+
+footer {
+  background-color: var(--jg-dark-color);
+}
+/* END: Footer */
+
+.checklist {
+  list-style-type: none;
+}
+
+.checklist>li i {
+    color: var(--jg-secondary-color);
+    padding-right: 0.5rem;
+}
+
+.devIcons {
+    font-size: 3rem;
+    padding-left: 0.5rem;
+}
+
+.appLogo {
+    max-width: 400px;
+}
