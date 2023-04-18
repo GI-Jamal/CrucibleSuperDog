@@ -68,7 +68,7 @@ var events = [
 function buildDropDown() {
   let dropdownMenu = document.getElementById("eventDropDown");
   dropdownMenu.innerHTML = "";
-  let currentEvents = events;
+  let currentEvents = getEventData();
 
   let cityNames = currentEvents.map(event => event.city);
 
@@ -173,4 +173,17 @@ function displayStats(currentEvents) {
   let most = document.getElementById('most').textContent = statistics.most.toLocaleString();
   let least = document.getElementById('least').textContent = statistics.least.toLocaleString();
 
+}
+
+function getEventData(){
+  let data = localStorage.getItem('jgSuperDogEvents');
+
+  if (data == null)
+  {
+    localStorage.setItem('jgSuperDogEvents', JSON.stringify(events))
+  }
+
+  let currentEvents = data == null ? events : JSON.parse(data);
+
+  return currentEvents
 }
