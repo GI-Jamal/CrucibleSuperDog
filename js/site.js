@@ -103,6 +103,7 @@ function buildDropDown() {
     dropdownMenu.appendChild(itemNode);
   }
   displayEventData(currentEvents);
+  displayStats(currentEvents);
 }
 
 function displayEventData(currentEvents) {
@@ -127,4 +128,49 @@ function displayEventData(currentEvents) {
     eventTable.appendChild(tableRow);
   }
   
+}
+
+function calculateStats(currentEvents) {
+  let total = 0;
+  let most = 0;
+  let least = currentEvents[0].attendance;
+  let average = 0;
+
+  for (let i = 0; i < currentEvents.length; i++)
+  {
+    let currentAttendance = currentEvents[i].attendance;
+
+    total += currentAttendance;
+
+    if (currentAttendance > most)
+    {
+      most = currentAttendance;
+    }
+
+    if (currentAttendance < least)
+    {
+      least = currentAttendance;
+    }
+  }
+  average = total / currentEvents.length;
+
+  let stats = {
+    total: total,
+    average: average,
+    most: most,
+    least: least
+  };
+
+  return stats;
+}
+
+function displayStats(currentEvents) {
+
+  let statistics = calculateStats(currentEvents);
+
+  let total = document.getElementById('total').textContent = statistics.total.toLocaleString();
+  let average = document.getElementById('average').textContent = Math.round(statistics.average).toLocaleString();
+  let most = document.getElementById('most').textContent = statistics.most.toLocaleString();
+  let least = document.getElementById('least').textContent = statistics.least.toLocaleString();
+
 }
