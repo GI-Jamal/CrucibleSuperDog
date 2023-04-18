@@ -70,7 +70,7 @@ function buildDropDown() {
   dropdownMenu.innerHTML = "";
   let currentEvents = getEventData();
 
-  let cityNames = currentEvents.map(event => event.city);
+  let cityNames = currentEvents.map((event) => event.city);
 
   let citiesSet = new Set(cityNames);
 
@@ -108,26 +108,25 @@ function buildDropDown() {
 
 function displayEventData(currentEvents) {
   // get the table
-  const eventTable = document.getElementById("eventTable")
+  const eventTable = document.getElementById("eventTable");
   const template = document.getElementById("tableRowTemplate");
 
-  eventTable.innerHTML = ''
+  eventTable.innerHTML = "";
 
-  for (let i = 0; i < currentEvents.length; i++)
-  {
+  for (let i = 0; i < currentEvents.length; i++) {
     let event = currentEvents[i];
 
-    let tableRow = document.importNode(template.content, true)
+    let tableRow = document.importNode(template.content, true);
 
     tableRow.querySelector('[data-id="event"]').textContent = event.event;
     tableRow.querySelector('[data-id="city"]').textContent = event.city;
     tableRow.querySelector('[data-id="state"]').textContent = event.state;
-    tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
+    tableRow.querySelector('[data-id="attendance"]').textContent =
+      event.attendance;
     tableRow.querySelector('[data-id="date"]').textContent = event.date;
 
     eventTable.appendChild(tableRow);
   }
-  
 }
 
 function calculateStats(currentEvents) {
@@ -136,19 +135,16 @@ function calculateStats(currentEvents) {
   let least = currentEvents[0].attendance;
   let average = 0;
 
-  for (let i = 0; i < currentEvents.length; i++)
-  {
+  for (let i = 0; i < currentEvents.length; i++) {
     let currentAttendance = currentEvents[i].attendance;
 
     total += currentAttendance;
 
-    if (currentAttendance > most)
-    {
+    if (currentAttendance > most) {
       most = currentAttendance;
     }
 
-    if (currentAttendance < least)
-    {
+    if (currentAttendance < least) {
       least = currentAttendance;
     }
   }
@@ -158,32 +154,67 @@ function calculateStats(currentEvents) {
     total: total,
     average: average,
     most: most,
-    least: least
+    least: least,
   };
 
   return stats;
 }
 
 function displayStats(currentEvents) {
-
   let statistics = calculateStats(currentEvents);
 
-  let total = document.getElementById('total').textContent = statistics.total.toLocaleString();
-  let average = document.getElementById('average').textContent = Math.round(statistics.average).toLocaleString();
-  let most = document.getElementById('most').textContent = statistics.most.toLocaleString();
-  let least = document.getElementById('least').textContent = statistics.least.toLocaleString();
-
+  let total = (document.getElementById("total").textContent =
+    statistics.total.toLocaleString());
+  let average = (document.getElementById("average").textContent = Math.round(
+    statistics.average
+  ).toLocaleString());
+  let most = (document.getElementById("most").textContent =
+    statistics.most.toLocaleString());
+  let least = (document.getElementById("least").textContent =
+    statistics.least.toLocaleString());
 }
 
-function getEventData(){
-  let data = localStorage.getItem('jgSuperDogEvents');
+function getEventData() {
+  let data = localStorage.getItem("jgSuperDogEvents");
 
-  if (data == null)
-  {
-    localStorage.setItem('jgSuperDogEvents', JSON.stringify(events))
+  if (data == null) {
+    localStorage.setItem("jgSuperDogEvents", JSON.stringify(events));
   }
 
   let currentEvents = data == null ? events : JSON.parse(data);
 
-  return currentEvents
+  return currentEvents;
+}
+
+function viewFilteredEvents(dropdownItem) {
+  let cityName = dropdownItem.getAttribute("data-string");
+
+  let allEvents = getEventData();
+
+  if (cityName == "All") 
+  {
+    displayStats(allEvents);
+    displayEventData(allEvents);
+    document.getElementById("location").innerText = "All Events";
+  } 
+  
+  else 
+  {
+    // get all my events
+    let allEvents = getEventData();
+
+    // filter those events to just the selected city
+    let filteredEvents = allEvents.filter(
+      (event) => event.city.toLowerCase() == cityName.toLowerCase()
+    );
+
+    // display the stats for those events
+    displayStats(filteredEvents);
+
+    //
+    document.getElementById("location").innerText = cityName;
+
+    // display only those events in the table
+    displayEventData(filteredEvents);
+  }
 }
