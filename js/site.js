@@ -104,6 +104,7 @@ function buildDropDown() {
   }
   displayEventData(currentEvents);
   displayStats(currentEvents);
+  document.getElementById('location').innerText = 'All Events';
 }
 
 function displayEventData(currentEvents) {
@@ -122,8 +123,10 @@ function displayEventData(currentEvents) {
     tableRow.querySelector('[data-id="city"]').textContent = event.city;
     tableRow.querySelector('[data-id="state"]').textContent = event.state;
     tableRow.querySelector('[data-id="attendance"]').textContent =
-      event.attendance;
-    tableRow.querySelector('[data-id="date"]').textContent = event.date;
+      event.attendance.toLocaleString();
+    tableRow.querySelector('[data-id="date"]').textContent = new Date(
+      event.date
+    ).toLocaleDateString();
 
     eventTable.appendChild(tableRow);
   }
@@ -191,15 +194,11 @@ function viewFilteredEvents(dropdownItem) {
 
   let allEvents = getEventData();
 
-  if (cityName == "All") 
-  {
+  if (cityName == "All") {
     displayStats(allEvents);
     displayEventData(allEvents);
     document.getElementById("location").innerText = "All Events";
-  } 
-  
-  else 
-  {
+  } else {
     // get all my events
     let allEvents = getEventData();
 
@@ -217,4 +216,38 @@ function viewFilteredEvents(dropdownItem) {
     // display only those events in the table
     displayEventData(filteredEvents);
   }
+}
+
+function saveNewEvent() {
+  let name = document.getElementById("newEventName").value;
+  let city = document.getElementById("newEventCity").value;
+
+  let attendance = parseInt(
+    document.getElementById("newEventAttendance").value,
+    10
+  );
+
+  let stateSelect = document.getElementById("newEventState");
+  let stateIndex = stateSelect.selectedIndex;
+  let state = stateSelect.options[stateIndex].text;
+
+  let date = new Date(
+    document.getElementById("newEventDate").value
+  ).toLocaleDateString();
+
+  let newEvent = {
+    event: name,
+    city: city,
+    state: state,
+    attendance: attendance,
+    date: date,
+  };
+
+  let events = getEventData();
+
+  events.push(newEvent);
+
+  localStorage.setItem('jgSuperDogEvents', JSON.stringify(events));
+
+  buildDropDown();
 }

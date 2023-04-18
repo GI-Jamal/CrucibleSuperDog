@@ -277,7 +277,8 @@
                   </div>
                   <div class="col-12">
                     <label class="form-label">State</label>
-                    <select class="form-control" placeholder="State" id="newEventState">
+                    <select class="form-control" id="newEventState">
+                      <option value="">Select a state</option>
                       <option value="AL">Alabama</option>
                       <option value="AK">Alaska</option>
                       <option value="AZ">Arizona</option>
@@ -334,7 +335,7 @@
                   <div class="col-12">
                     <label class="form-label">Attendance</label>
                     <input
-                      placeholder="Select a state"
+                      placeholder="Attendance"
                       id="newEventAttendance"
                       class="form-control"
                       type="number"
@@ -361,7 +362,14 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Save</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+              onclick="saveNewEvent()"
+            >
+              Save
+            </button>
           </div>
         </div>
       </div>
