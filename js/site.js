@@ -104,7 +104,7 @@ function buildDropDown() {
   }
   displayEventData(currentEvents);
   displayStats(currentEvents);
-  document.getElementById('location').innerText = 'All Events';
+  document.getElementById("location").innerText = "All Events";
 }
 
 function displayEventData(currentEvents) {
@@ -127,6 +127,8 @@ function displayEventData(currentEvents) {
     tableRow.querySelector('[data-id="date"]').textContent = new Date(
       event.date
     ).toLocaleDateString();
+
+    tableRow.querySelector("tr").setAttribute("data-event", event.id);
 
     eventTable.appendChild(tableRow);
   }
@@ -181,10 +183,20 @@ function getEventData() {
   let data = localStorage.getItem("jgSuperDogEvents");
 
   if (data == null) {
-    localStorage.setItem("jgSuperDogEvents", JSON.stringify(events));
+    let identifiedEvents = events.map((event) => {
+      event.id = generateID();
+      return event;
+    });
+    localStorage.setItem("jgSuperDogEvents", JSON.stringify(identifiedEvents));
+    data = localStorage.getItem("jgSuperDogEvents");
   }
 
-  let currentEvents = data == null ? events : JSON.parse(data);
+  let currentEvents = JSON.parse(data);
+
+  if (currentEvents.some((event) => event.id == undefined)) {
+    currentEvents.forEach((event) => (event.id = generateId()));
+    localStorage.setItem("jgSuperDogEvents", JSON.stringify(currentEvents));
+  }
 
   return currentEvents;
 }
@@ -241,13 +253,114 @@ function saveNewEvent() {
     state: state,
     attendance: attendance,
     date: date,
+    id: generateId()
   };
 
   let events = getEventData();
 
   events.push(newEvent);
 
-  localStorage.setItem('jgSuperDogEvents', JSON.stringify(events));
+  localStorage.setItem("jgSuperDogEvents", JSON.stringify(events));
 
   buildDropDown();
+
+  document.getElementById('newEventForm').reset();
+}
+
+function generateId() {
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
+  );
+}
+
+function editEvent(eventRow) {
+  let eventId = eventRow.getAttribute("data-event");
+
+  let currentEvents = getEventData();
+
+  let eventToEdit = currentEvents.find(
+    (eventObject) => eventObject.id == eventId
+  );
+
+  document.getElementById("editEventId").value = eventToEdit.id;
+  document.getElementById("editEventName").value = eventToEdit.event;
+  document.getElementById("editEventCity").value = eventToEdit.city;
+  document.getElementById("editEventAttendance").value = eventToEdit.attendance;
+
+  let eventDate = new Date(eventToEdit.date);
+  let eventDateString = eventDate.toISOString();
+  let formattedDate = eventDateString.split("T")[0];
+
+  document.getElementById("editEventDate").value = formattedDate;
+
+  let editStateSelect = document.getElementById("editEventState");
+
+  // The below lines of code are equivalent to the below commented out code
+  let optionsArray = [...editStateSelect];
+  let index = optionsArray.findIndex(
+    (option) => eventToEdit.state == option.textContent
+  );
+  editStateSelect.selectedIndex = index;
+
+  // for (let i = 0; i < editStateSelect.length; i++) {
+  //   let option = editStateSelect.options[i];
+
+  //   if (eventToEdit.state == option.text) {
+  //     editStateSelect.selectedIndex = i;
+  //   }
+  // }
+}
+
+function deleteEvent() {
+  let eventId = document.getElementById("editEventId").value;
+
+  let currentEvents = getEventData();
+
+  let filteredEvents = currentEvents.filter((event) => event.id != eventId);
+
+  localStorage.setItem("jgSuperDogEvents", JSON.stringify(filteredEvents));
+
+  buildDropDown();
+}
+
+function updateEvent() {
+  let eventId = document.getElementById('editEventId').value
+
+  let name = document.getElementById("editEventName").value;
+  let city = document.getElementById("editEventCity").value;
+
+  let attendance = parseInt(
+    document.getElementById("editEventAttendance").value,
+    10
+  );
+
+  let stateSelect = document.getElementById("editEventState");
+  let stateIndex = stateSelect.selectedIndex;
+  let state = stateSelect.options[stateIndex].text;
+
+  let date = new Date(
+    document.getElementById("editEventDate").value
+  ).toLocaleDateString();
+
+  let newEvent = {
+    event: name,
+    city: city,
+    state: state,
+    attendance: attendance,
+    date: date,
+    id: eventId
+  };
+
+  let currentEvents = getEventData();
+
+  let index = currentEvents.findIndex(event => event.id == eventId);
+
+  currentEvents[index] = newEvent;
+
+  localStorage.setItem('jgSuperDogEvents', JSON.stringify(currentEvents));
+
+  buildDropDown()
 }
