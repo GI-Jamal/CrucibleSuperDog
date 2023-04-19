@@ -243,9 +243,11 @@ function saveNewEvent() {
   let stateIndex = stateSelect.selectedIndex;
   let state = stateSelect.options[stateIndex].text;
 
-  let date = new Date(
-    document.getElementById("newEventDate").value
-  ).toLocaleDateString();
+  
+
+  let date = new Date(document
+    .getElementById("newEventDate")
+    .value + 'T00:00').toLocaleDateString();
 
   let newEvent = {
     event: name,
@@ -342,7 +344,7 @@ function updateEvent() {
   let state = stateSelect.options[stateIndex].text;
 
   let date = new Date(
-    document.getElementById("editEventDate").value
+    document.getElementById("editEventDate").value + 'T00:00'
   ).toLocaleDateString();
 
   let newEvent = {
