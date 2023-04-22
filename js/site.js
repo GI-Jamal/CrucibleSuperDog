@@ -300,20 +300,11 @@ function editEvent(eventRow) {
 
   let editStateSelect = document.getElementById("editEventState");
 
-  // The below lines of code are equivalent to the below commented out code
   let optionsArray = [...editStateSelect];
   let index = optionsArray.findIndex(
     (option) => eventToEdit.state == option.textContent
   );
   editStateSelect.selectedIndex = index;
-
-  // for (let i = 0; i < editStateSelect.length; i++) {
-  //   let option = editStateSelect.options[i];
-
-  //   if (eventToEdit.state == option.text) {
-  //     editStateSelect.selectedIndex = i;
-  //   }
-  // }
 }
 
 function deleteEvent() {

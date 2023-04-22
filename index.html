@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>APP NAME: A CODING CHALLENGE by Jamal Gibson</title>
+    <title>Money Trees: A Coding Challenge by Jamal Gibson</title>
 
     <!-- Boostrap CSS -->
     <link
@@ -36,28 +36,33 @@
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
 
+    <!-- Prism CSS -->
+    <link rel="stylesheet" href="/css/prism.css" />
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hovercard.css" />
-    <link rel="stylesheet" href="/css/blogCard.css" />
     <link rel="stylesheet" href="/css/site.css" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-    <!-- TODO: change this from CF default favicon, replacement file name MUST be favicon.ico -->
   </head>
-  <!-- Change all text with placeholder APP NAME -->
+
   <body>
     <!-- Header Banner -->
     <header id="home">
-      <!-- Navigation Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <!-- Mobile Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg fixed-top shadow-lg d-sm-none"
+        data-bs-theme="dark"
+        id="mainNav"
+      >
         <div class="container-xxl">
-          <a class="navbar-brand" href="/index.html">
-            <img src="/img/Jamal Name Logo White.png" height="50" />
-            APP NAME
-            <!--  TODO: play around with height of image with the height attribute -->
+          <a
+            class="navbar-brand border-top border-bottom border-white"
+            href="/index.html"
+          >
+            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
+            <span id="appName"> Money Trees</span>
           </a>
-          <!-- TODO: customize mobile menu button, and complete navbar -->
           <button
             class="navbar-toggler"
             type="button"
@@ -66,8 +71,9 @@
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            id="mobileNavToggler"
           >
-            <span class="navbar-toggler-jg">
+            <span class="navbar-toggle-icon">
               <i class="bi bi-list"></i>
             </span>
           </button>
@@ -88,17 +94,108 @@
                 <a class="nav-link" href="/code.html">The Code</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/my-profile"
+                <a
+                  class="nav-link"
+                  href="https://github.com/GI-Jamal/CrucibleLoanShark"
+                  target="_blank"
                   >The Repo</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a
+                  class="nav-link"
+                  href="https://jamalgibson-portfolio.netlify.app/"
+                  target="_blank"
+                  >About</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#blog">Blog</a>
+                <a class="nav-link" href="#blog" target="_blank">Blog</a>
               </li>
             </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Desktop Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg d-none fixed-top d-sm-block shadow-lg"
+        data-bs-theme="dark"
+        id="mainNav"
+      >
+        <div class="container-xxl">
+          <a
+            class="navbar-brand border-top border-bottom border-white d-flex align-items-center"
+            href="/index.html"
+          >
+            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
+            <span id="appName"> Money Trees</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+            id="desktopNavToggler"
+          >
+            <span class="navbar-toggler-jg">
+              <i class="bi bi-list"></i>
+            </span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+                id="desktopNavClose"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="/index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/app.html">The App</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/code.html">The Code</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://github.com/GI-Jamal/CrucibleLoanShark"
+                    target="_blank"
+                    >The Repo</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://jamalgibson-portfolio.netlify.app/"
+                    target="_blank"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#blog" target="_blank">Blog</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -176,25 +273,22 @@
     <footer>
       <div class="container-xxl">
         <div
-          class="footer-main py-3 row row-cols-1 row-cols-md-3 align-items-center text-center gy-3"
+          class="footer-main py-3 row row-cols-1 row-cols-md-3 align-items-center text-center gy-3 gy-md-0"
         >
           <div class="col">
-            <img src="/img/Jamal Name Logo White.png" height="50" />
-            <!-- TODO: change image height and image -->
+            <img
+              src="/img/Jamal Name Logo White.png"
+              class="img-fluid brandImaging"
+            />
           </div>
-          <div class="col text-md-end">
-            <!-- TODO: change social media links -->
-            <a href="https://linkedin.com/my-profile"
+          <div class="col text-md-end order-first order-md-last">
+            <a
+              href="https://www.linkedin.com/in/jamal-gibson-3b7bb9140/"
+              target="_blank"
               ><i class="socialicons bi bi-linkedin p-2"></i
             ></a>
-            <a href="https://github.com/my-profile"
+            <a href="https://github.com/GI-Jamal" target="_blank"
               ><i class="socialicons bi bi-github p-2"></i
-            ></a>
-            <a href="https://twitter.com/my-profile"
-              ><i class="socialicons bi bi-twitter p-2"></i
-            ></a>
-            <a href="https://youtube.com/my-profile"
-              ><i class="socialicons bi bi-youtube p-2"></i
             ></a>
           </div>
           <div class="col text-light order-md-first text-md-start">
@@ -210,5 +304,24 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script></script>
+
+    <!-- Prism JS -->
+    <script src="/js/prism.js"></script>
+    <script>
+      Prism.plugins.NormalizeWhitespace.setDefaults({
+        "remove-trailing": true,
+        "remove-indent": true,
+        "left-trim": true,
+        "right-trim": true,
+      });
+    </script>
+
+    <!-- Custom JS -->
+    <script src="/js/site.js"></script>
+    <script></script>
   </body>
 </html>
