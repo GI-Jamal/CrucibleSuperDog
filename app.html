@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>APP NAME: A CODING CHALLENGE by Jamal Gibson</title>
+    <title>Event Nest: A Coding Challenge by Jamal Gibson</title>
 
     <!-- Boostrap CSS -->
     <link
@@ -46,15 +46,20 @@
   <body onload="buildDropDown()">
     <!-- Header Banner -->
     <header id="home">
-      <!-- Navigation Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+      <!-- Mobile Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg shadow-lg fixed-top d-sm-none"
+        data-bs-theme="dark"
+        id="mainNav"
+      >
         <div class="container-xxl">
-          <a class="navbar-brand" href="/index.html">
-            <img src="/img/Jamal Name Logo White.png" height="50" />
-            APP NAME
-            <!--  TODO: play around with height of image with the height attribute -->
+          <a
+            class="navbar-brand border-top border-bottom border-white"
+            href="/index.html"
+          >
+            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
+            <span id="appName"> Event Nest</span>
           </a>
-          <!-- TODO: customize mobile menu button, and complete navbar -->
           <button
             class="navbar-toggler"
             type="button"
@@ -63,15 +68,21 @@
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            id="mobileNavToggler"
           >
-            <span class="navbar-toggler-jg">
+            <span class="navbar-toggle-icon">
               <i class="bi bi-list"></i>
             </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/index.html">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/app.html"
@@ -82,24 +93,115 @@
                 <a class="nav-link" href="/code.html">The Code</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/my-profile"
+                <a
+                  class="nav-link"
+                  href="https://github.com/GI-Jamal/CrucibleSuperDog"
+                  target="_blank"
                   >The Repo</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a
+                  class="nav-link"
+                  href="https://jamalgibson-portfolio.netlify.app/"
+                  target="_blank"
+                  >About</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#blog">Blog</a>
+                <a class="nav-link" href="#blog" target="_blank">Blog</a>
               </li>
             </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Desktop Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg d-none fixed-top d-sm-block shadow-lg"
+        data-bs-theme="dark"
+        id="mainNav"
+      >
+        <div class="container-xxl">
+          <a
+            class="navbar-brand border-top border-bottom border-white d-flex align-items-center"
+            href="/index.html"
+          >
+            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
+            <span id="appName"> Event Nest</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+            id="desktopNavToggler"
+          >
+            <span class="navbar-toggler-jg">
+              <i class="bi bi-list"></i>
+            </span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+                id="desktopNavClose"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="/app.html"
+                    >The App</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/code.html">The Code</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://github.com/GI-Jamal/CrucibleSuperDog"
+                    target="_blank"
+                    >The Repo</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://jamalgibson-portfolio.netlify.app/"
+                    target="_blank"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#blog" target="_blank">Blog</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="container-xxl mt-3">
+    <main class="container-xxl mainMargins">
       <div class="row">
         <div class="col-12 col-sm-6">
           <div class="dropdown my-3">
@@ -113,8 +215,8 @@
             </button>
             <ul class="dropdown-menu" id="eventDropDown"></ul>
           </div>
-          <table class="table table-striped border shadow">
-            <thead class="table-dark">
+          <table class="table table-striped border shadow table-dark">
+            <thead>
               <tr>
                 <th colspan="2">
                   Stats For <span id="location">All Events</span>
@@ -155,7 +257,7 @@
           Add Data
         </button>
         <div class="table-responsive">
-          <table class="table table-striped table-hover">
+          <table class="table table-striped table-dark border table-hover">
             <thead class="table-dark">
               <tr>
                 <th>Event Name</th>
@@ -175,25 +277,22 @@
     <footer>
       <div class="container-xxl">
         <div
-          class="footer-main py-3 row row-cols-1 row-cols-md-3 align-items-center text-center gy-3"
+          class="footer-main py-3 row row-cols-1 row-cols-md-3 align-items-center text-center gy-3 gy-md-0"
         >
           <div class="col">
-            <img src="/img/Jamal Name Logo White.png" height="50" />
-            <!-- TODO: change image height and image -->
+            <img
+              src="/img/Jamal Name Logo White.png"
+              class="img-fluid brandImaging"
+            />
           </div>
-          <div class="col text-md-end">
-            <!-- TODO: change social media links -->
-            <a href="https://linkedin.com/my-profile"
+          <div class="col text-md-end order-first order-md-last">
+            <a
+              href="https://www.linkedin.com/in/jamal-gibson-3b7bb9140/"
+              target="_blank"
               ><i class="socialicons bi bi-linkedin p-2"></i
             ></a>
-            <a href="https://github.com/my-profile"
+            <a href="https://github.com/GI-Jamal" target="_blank"
               ><i class="socialicons bi bi-github p-2"></i
-            ></a>
-            <a href="https://twitter.com/my-profile"
-              ><i class="socialicons bi bi-twitter p-2"></i
-            ></a>
-            <a href="https://youtube.com/my-profile"
-              ><i class="socialicons bi bi-youtube p-2"></i
             ></a>
           </div>
           <div class="col text-light order-md-first text-md-start">

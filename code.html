@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>APP NAME: A CODING CHALLENGE by Jamal Gibson</title>
+    <title>Event Nest: A Coding Challenge by Jamal Gibson</title>
 
     <!-- Boostrap CSS -->
     <link
@@ -36,30 +36,32 @@
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
     />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hovercard.css" />
-    <link rel="stylesheet" href="/css/blogCard.css" />
-    <link rel="stylesheet" href="/css/site.css" />
-
     <!-- Prism CSS -->
     <link rel="stylesheet" href="/css/prism.css" />
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/site.css" />
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
-    <!-- TODO: change this from CF default favicon, replacement file name MUST be favicon.ico -->
   </head>
   <body>
     <!-- Header Banner -->
     <header id="home">
-      <!-- Navigation Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
+      <!-- Mobile Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg fixed-top shadow-lg d-sm-none"
+        data-bs-theme="dark"
+        id="mainNav"
+      >
         <div class="container-xxl">
-          <a class="navbar-brand" href="/index.html">
-            <img src="/img/Jamal Name Logo White.png" height="50" />
-            APP NAME
-            <!--  TODO: play around with height of image with the height attribute -->
+          <a
+            class="navbar-brand border-top border-bottom border-white"
+            href="/index.html"
+          >
+            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
+            <span id="appName"> Event Nest</span>
           </a>
-          <!-- TODO: customize mobile menu button, and complete navbar -->
           <button
             class="navbar-toggler"
             type="button"
@@ -68,65 +70,525 @@
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            id="mobileNavToggler"
           >
-            <span class="navbar-toggler-jg">
+            <span class="navbar-toggle-icon">
               <i class="bi bi-list"></i>
             </span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="/index.html">Home</a>
+                <a
+                  class="nav-link"
+                  href="/index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/app.html">The App</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/code.html"
-                  >The Code</a
-                >
+                <a class="nav-link active"
+                  aria-current="page" href="/code.html">The Code</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://github.com/my-profile"
+                <a
+                  class="nav-link"
+                  href="https://github.com/GI-Jamal/CrucibleSuperDog"
+                  target="_blank"
                   >The Repo</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a
+                  class="nav-link"
+                  href="https://jamalgibson-portfolio.netlify.app/"
+                  target="_blank"
+                  >About</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#blog">Blog</a>
+                <a class="nav-link" href="#blog" target="_blank">Blog</a>
               </li>
             </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Desktop Navigation Bar -->
+      <nav
+        class="navbar navbar-expand-lg d-none fixed-top d-sm-block shadow-lg"
+        data-bs-theme="dark"
+        id="mainNav"
+      >
+        <div class="container-xxl">
+          <a
+            class="navbar-brand border-top border-bottom border-white d-flex align-items-center"
+            href="/index.html"
+          >
+            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
+            <span id="appName"> Event Nest</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+            id="desktopNavToggler"
+          >
+            <span class="navbar-toggler-jg">
+              <i class="bi bi-list"></i>
+            </span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+                id="desktopNavClose"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="/index.html"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/app.html">The App</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active"
+                    aria-current="page" href="/code.html">The Code</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://github.com/GI-Jamal/CrucibleSuperDog"
+                    target="_blank"
+                    >The Repo</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="https://jamalgibson-portfolio.netlify.app/"
+                    target="_blank"
+                    >About</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#blog" target="_blank">Blog</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="container-xxl mt-3">
-      <h1 class="border-bottom border-2 border-dark">The Code</h1>
+    <main class="container-xxl mainMargins">
+      <h1 class="border-bottom border-2 border-success titleText">The Code</h1>
       <div class="row">
         <div class="col-lg-8 col-12">
           <pre class="line-numbers">
-                    <code class="language-js">
-function displayMessage() {
-    let msg = document.getElementById("message").value;
-    Swal.fire(
-        {
-            backdrop: false,
-            title: 'App Name',
-            text: msg
-        }
-    );
+            <code class="language-js">
+function buildDropDown() {
+  let dropdownMenu = document.getElementById("eventDropDown");
+  dropdownMenu.innerHTML = "";
+  let currentEvents = getEventData();
+
+  let cityNames = currentEvents.map((event) => event.city);
+
+  let citiesSet = new Set(cityNames);
+
+  let distinctCities = [...citiesSet];
+
+  const dropdownTemplate = document.getElementById("dropdownItemTemplate");
+
+  // copy the template
+  let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
+
+  // make our changes
+  let dropdownItemLink = dropdownItemNode.querySelector("a");
+  dropdownItemLink.innerText = "All Cities";
+  dropdownItemLink.setAttribute("data-string", "All");
+
+  // add our copy to the page
+  dropdownMenu.appendChild(dropdownItemNode);
+
+  for (let i = 0; i < distinctCities.length; i++) {
+    // get the city name
+    let cityName = distinctCities[i];
+
+    // generate a dropdown element
+    let itemNode = document.importNode(dropdownTemplate.content, true);
+    let anchorTag = itemNode.querySelector("a");
+    anchorTag.innerText = cityName;
+    anchorTag.setAttribute("data-string", cityName);
+
+    // append it to the dropdown menu
+    dropdownMenu.appendChild(itemNode);
+  }
+  displayEventData(currentEvents);
+  displayStats(currentEvents);
+  document.getElementById("location").innerText = "All Events";
 }
-                    </code>
-                </pre>
+
+function displayEventData(currentEvents) {
+  // get the table
+  const eventTable = document.getElementById("eventTable");
+  const template = document.getElementById("tableRowTemplate");
+
+  eventTable.innerHTML = "";
+
+  for (let i = 0; i < currentEvents.length; i++) {
+    let event = currentEvents[i];
+
+    let tableRow = document.importNode(template.content, true);
+
+    tableRow.querySelector('[data-id="event"]').textContent = event.event;
+    tableRow.querySelector('[data-id="city"]').textContent = event.city;
+    tableRow.querySelector('[data-id="state"]').textContent = event.state;
+    tableRow.querySelector('[data-id="attendance"]').textContent =
+      event.attendance.toLocaleString();
+    tableRow.querySelector('[data-id="date"]').textContent = new Date(
+      event.date
+    ).toLocaleDateString();
+
+    tableRow.querySelector("tr").setAttribute("data-event", event.id);
+
+    eventTable.appendChild(tableRow);
+  }
+}
+
+function calculateStats(currentEvents) {
+  let total = 0;
+  let most = 0;
+  let least = currentEvents[0].attendance;
+  let average = 0;
+
+  for (let i = 0; i < currentEvents.length; i++) {
+    let currentAttendance = currentEvents[i].attendance;
+
+    total += currentAttendance;
+
+    if (currentAttendance > most) {
+      most = currentAttendance;
+    }
+
+    if (currentAttendance < least) {
+      least = currentAttendance;
+    }
+  }
+  average = total / currentEvents.length;
+
+  let stats = {
+    total: total,
+    average: average,
+    most: most,
+    least: least,
+  };
+
+  return stats;
+}
+
+function displayStats(currentEvents) {
+  let statistics = calculateStats(currentEvents);
+
+  let total = (document.getElementById("total").textContent =
+    statistics.total.toLocaleString());
+  let average = (document.getElementById("average").textContent = Math.round(
+    statistics.average
+  ).toLocaleString());
+  let most = (document.getElementById("most").textContent =
+    statistics.most.toLocaleString());
+  let least = (document.getElementById("least").textContent =
+    statistics.least.toLocaleString());
+}
+
+function getEventData() {
+  let data = localStorage.getItem("jgSuperDogEvents");
+
+  if (data == null) {
+    let identifiedEvents = events.map((event) => {
+      event.id = generateID();
+      return event;
+    });
+    localStorage.setItem("jgSuperDogEvents", JSON.stringify(identifiedEvents));
+    data = localStorage.getItem("jgSuperDogEvents");
+  }
+
+  let currentEvents = JSON.parse(data);
+
+  if (currentEvents.some((event) => event.id == undefined)) {
+    currentEvents.forEach((event) => (event.id = generateId()));
+    localStorage.setItem("jgSuperDogEvents", JSON.stringify(currentEvents));
+  }
+
+  return currentEvents;
+}
+
+function viewFilteredEvents(dropdownItem) {
+  let cityName = dropdownItem.getAttribute("data-string");
+
+  let allEvents = getEventData();
+
+  if (cityName == "All") {
+    displayStats(allEvents);
+    displayEventData(allEvents);
+    document.getElementById("location").innerText = "All Events";
+  } else {
+    // get all my events
+    let allEvents = getEventData();
+
+    // filter those events to just the selected city
+    let filteredEvents = allEvents.filter(
+      (event) => event.city.toLowerCase() == cityName.toLowerCase()
+    );
+
+    // display the stats for those events
+    displayStats(filteredEvents);
+
+    //
+    document.getElementById("location").innerText = cityName;
+
+    // display only those events in the table
+    displayEventData(filteredEvents);
+  }
+}
+
+function saveNewEvent() {
+  let name = document.getElementById("newEventName").value;
+  let city = document.getElementById("newEventCity").value;
+
+  let attendance = parseInt(
+    document.getElementById("newEventAttendance").value,
+    10
+  );
+
+  let stateSelect = document.getElementById("newEventState");
+  let stateIndex = stateSelect.selectedIndex;
+  let state = stateSelect.options[stateIndex].text;
+
+  
+
+  let date = new Date(document
+    .getElementById("newEventDate")
+    .value + 'T00:00').toLocaleDateString();
+
+  let newEvent = {
+    event: name,
+    city: city,
+    state: state,
+    attendance: attendance,
+    date: date,
+    id: generateId()
+  };
+
+  let events = getEventData();
+
+  events.push(newEvent);
+
+  localStorage.setItem("jgSuperDogEvents", JSON.stringify(events));
+
+  buildDropDown();
+
+  document.getElementById('newEventForm').reset();
+}
+
+function generateId() {
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
+    (
+      c ^
+      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
+    ).toString(16)
+  );
+}
+
+function editEvent(eventRow) {
+  let eventId = eventRow.getAttribute("data-event");
+
+  let currentEvents = getEventData();
+
+  let eventToEdit = currentEvents.find(
+    (eventObject) => eventObject.id == eventId
+  );
+
+  document.getElementById("editEventId").value = eventToEdit.id;
+  document.getElementById("editEventName").value = eventToEdit.event;
+  document.getElementById("editEventCity").value = eventToEdit.city;
+  document.getElementById("editEventAttendance").value = eventToEdit.attendance;
+
+  let eventDate = new Date(eventToEdit.date);
+  let eventDateString = eventDate.toISOString();
+  let formattedDate = eventDateString.split("T")[0];
+
+  document.getElementById("editEventDate").value = formattedDate;
+
+  let editStateSelect = document.getElementById("editEventState");
+
+  let optionsArray = [...editStateSelect];
+  let index = optionsArray.findIndex(
+    (option) => eventToEdit.state == option.textContent
+  );
+  editStateSelect.selectedIndex = index;
+}
+
+function deleteEvent() {
+  let eventId = document.getElementById("editEventId").value;
+
+  let currentEvents = getEventData();
+
+  let filteredEvents = currentEvents.filter((event) => event.id != eventId);
+
+  localStorage.setItem("jgSuperDogEvents", JSON.stringify(filteredEvents));
+
+  buildDropDown();
+}
+
+function updateEvent() {
+  let eventId = document.getElementById('editEventId').value
+
+  let name = document.getElementById("editEventName").value;
+  let city = document.getElementById("editEventCity").value;
+
+  let attendance = parseInt(
+    document.getElementById("editEventAttendance").value,
+    10
+  );
+
+  let stateSelect = document.getElementById("editEventState");
+  let stateIndex = stateSelect.selectedIndex;
+  let state = stateSelect.options[stateIndex].text;
+
+  let date = new Date(
+    document.getElementById("editEventDate").value + 'T00:00'
+  ).toLocaleDateString();
+
+  let newEvent = {
+    event: name,
+    city: city,
+    state: state,
+    attendance: attendance,
+    date: date,
+    id: eventId
+  };
+
+  let currentEvents = getEventData();
+
+  let index = currentEvents.findIndex(event => event.id == eventId);
+
+  currentEvents[index] = newEvent;
+
+  localStorage.setItem('jgSuperDogEvents', JSON.stringify(currentEvents));
+
+  buildDropDown()
+}
+            </code>
+          </pre>
         </div>
-        <div class="col-lg-4 col-12">
-          <p>The code is structured in one function</p>
-          <h5>displaMessage</h5>
-          <p>print out the message</p>
+        <div class="col-lg-4 col-12 mt-2">
+          <p>The code is structured in eleven functions:</p>
+          <hr />
+          <h5>buildDropDown():</h5>
+          <p>
+            This function generates a dropdown menu on the webpage based on the
+            unique cities present in the data, and sets it as the event filter.
+            It also displays statistics and event data based on the filtered
+            data, and sets the location display accordingly.
+          </p>
+          <hr />
+          <h5>displayEventData():</h5>
+          <p>
+            This function is called by buildDropDown() and displays event data
+            in a table based on the current events.
+          </p>
+          <hr />
+          <h5>calculateStats():</h5>
+          <p>
+            This function calculates and returns statistics such as the total
+            attendance, average attendance, highest and lowest attendance based
+            on the current events.
+          </p>
+          <hr />
+          <h5>displayStats():</h5>
+          <p>
+            This function is called by buildDropDown() and displays statistics
+            based on the current events.
+          </p>
+          <hr />
+          <h5>getEventData():</h5>
+          <p>
+            This function retrieves the event data from local storage, and
+            generates unique IDs for the events if not present. It returns the
+            current event data.
+          </p>
+          <hr />
+          <h5>viewFilteredEvents():</h5>
+          <p>
+            This function is called when a dropdown item is selected and filters
+            the event data based on the selected city. It displays statistics
+            and event data based on the filtered data, and sets the location
+            display accordingly.
+          </p>
+          <hr />
+          <h5>saveNewEvent():</h5>
+          <p>
+            This function saves a new event with the event name, city, state,
+            attendance, and date that are obtained from form inputs.
+          </p>
+          <hr />
+          <h5>generateId():</h5>
+          <p>
+            This function generates a random alphanumeric ID using the
+            crypto.getRandomValues() method and bitwise operations. The
+            generated ID is returned as a string.
+          </p>
+          <hr />
+          <h5>editEvent():</h5>
+          <p>
+            This function populates a form with the details of a selected event
+            for editing. It takes an event row element as an argument and
+            retrieves the event ID from its data-event attribute. It then uses
+            the ID to find the corresponding event object from an array of
+            events, and populates the form fields with the event details.
+          </p>
+          <hr />
+          <h5>deleteEvent():</h5>
+          <p>
+            This function deletes an event from an array of events and updates
+            the list of events in local storage. It retrieves the ID of the
+            event to be deleted from a form field, filters out the event from
+            the array, and saves the updated array to local storage. It then
+            rebuilds the drop-down list of events.
+          </p>
+          <hr />
+          <h5>updateEvent():</h5>
+          <p>
+            This function updates the details of an existing event and saves the
+            updated event to local storage. It retrieves the ID of the event to
+            be updated from a form field, and retrieves the updated details from
+            the form fields. It then creates a new event object with the updated
+            details and replaces the existing event object in the array of
+            events. The updated array of events is then saved to local storage,
+            and the drop-down list of events is rebuilt.
+          </p>
+          <hr />
         </div>
       </div>
     </main>
@@ -135,25 +597,22 @@ function displayMessage() {
     <footer>
       <div class="container-xxl">
         <div
-          class="footer-main py-3 row row-cols-1 row-cols-md-3 align-items-center text-center gy-3"
+          class="footer-main py-3 row row-cols-1 row-cols-md-3 align-items-center text-center gy-3 gy-md-0"
         >
           <div class="col">
-            <img src="/img/Jamal Name Logo White.png" height="50" />
-            <!-- TODO: change image height and image -->
+            <img
+              src="/img/Jamal Name Logo White.png"
+              class="img-fluid brandImaging"
+            />
           </div>
-          <div class="col text-md-end">
-            <!-- TODO: change social media links -->
-            <a href="https://linkedin.com/my-profile"
+          <div class="col text-md-end order-first order-md-last">
+            <a
+              href="https://www.linkedin.com/in/jamal-gibson-3b7bb9140/"
+              target="_blank"
               ><i class="socialicons bi bi-linkedin p-2"></i
             ></a>
-            <a href="https://github.com/my-profile"
+            <a href="https://github.com/GI-Jamal" target="_blank"
               ><i class="socialicons bi bi-github p-2"></i
-            ></a>
-            <a href="https://twitter.com/my-profile"
-              ><i class="socialicons bi bi-twitter p-2"></i
-            ></a>
-            <a href="https://youtube.com/my-profile"
-              ><i class="socialicons bi bi-youtube p-2"></i
             ></a>
           </div>
           <div class="col text-light order-md-first text-md-start">
@@ -170,6 +629,10 @@ function displayMessage() {
       crossorigin="anonymous"
     ></script>
 
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script></script>
+
     <!-- Prism JS -->
     <script src="/js/prism.js"></script>
     <script>
@@ -180,5 +643,9 @@ function displayMessage() {
         "right-trim": true,
       });
     </script>
+
+    <!-- Custom JS -->
+    <script src="/js/site.js"></script>
+    <script></script>
   </body>
 </html>
