@@ -1,3 +1,10 @@
+const tooltipTriggerList = document.querySelectorAll(
+  '[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+  (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+);
+
 var events = [
   {
     event: "ComicCon",
@@ -243,11 +250,9 @@ function saveNewEvent() {
   let stateIndex = stateSelect.selectedIndex;
   let state = stateSelect.options[stateIndex].text;
 
-  
-
-  let date = new Date(document
-    .getElementById("newEventDate")
-    .value + 'T00:00').toLocaleDateString();
+  let date = new Date(
+    document.getElementById("newEventDate").value + "T00:00"
+  ).toLocaleDateString();
 
   let newEvent = {
     event: name,
@@ -255,7 +260,7 @@ function saveNewEvent() {
     state: state,
     attendance: attendance,
     date: date,
-    id: generateId()
+    id: generateId(),
   };
 
   let events = getEventData();
@@ -266,7 +271,7 @@ function saveNewEvent() {
 
   buildDropDown();
 
-  document.getElementById('newEventForm').reset();
+  document.getElementById("newEventForm").reset();
 }
 
 function generateId() {
@@ -320,7 +325,7 @@ function deleteEvent() {
 }
 
 function updateEvent() {
-  let eventId = document.getElementById('editEventId').value
+  let eventId = document.getElementById("editEventId").value;
 
   let name = document.getElementById("editEventName").value;
   let city = document.getElementById("editEventCity").value;
@@ -335,7 +340,7 @@ function updateEvent() {
   let state = stateSelect.options[stateIndex].text;
 
   let date = new Date(
-    document.getElementById("editEventDate").value + 'T00:00'
+    document.getElementById("editEventDate").value + "T00:00"
   ).toLocaleDateString();
 
   let newEvent = {
@@ -344,16 +349,16 @@ function updateEvent() {
     state: state,
     attendance: attendance,
     date: date,
-    id: eventId
+    id: eventId,
   };
 
   let currentEvents = getEventData();
 
-  let index = currentEvents.findIndex(event => event.id == eventId);
+  let index = currentEvents.findIndex((event) => event.id == eventId);
 
   currentEvents[index] = newEvent;
 
-  localStorage.setItem('jgSuperDogEvents', JSON.stringify(currentEvents));
+  localStorage.setItem("jgSuperDogEvents", JSON.stringify(currentEvents));
 
-  buildDropDown()
+  buildDropDown();
 }
