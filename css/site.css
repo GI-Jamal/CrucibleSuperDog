@@ -224,3 +224,17 @@ footer {
     margin-top: 0 !important;
   }
 }
+
+
+@media (max-width: 451px) {
+  .appLogo {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .appLogo {
+    margin-bottom: 1rem;
+  }
+}
