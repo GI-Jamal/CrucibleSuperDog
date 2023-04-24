@@ -203,7 +203,7 @@
     <!-- Main Content -->
     <main class="container-xxl mainMargins">
       <div class="row">
-        <div class="col-12 col-sm-6">
+        <div class="fullWidth col-sm-6 d-flex flex-column justify-content-center mt-5">
           <div class="dropdown my-3">
             <button
               class="btn btn-secondary dropdown-toggle"
@@ -219,40 +219,42 @@
               id="eventDropDown"
             ></ul>
           </div>
-          <table class="table table-striped border shadow table-dark">
-            <thead>
-              <tr>
-                <th colspan="2">
-                  Stats For <span id="location">All Events</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Total Attendance</td>
-                <td id="total">100</td>
-              </tr>
-              <tr>
-                <td>Average Attendance</td>
-                <td id="average">100</td>
-              </tr>
-              <tr>
-                <td>Most Attendance</td>
-                <td id="most">100</td>
-              </tr>
-              <tr>
-                <td>Least Attendance</td>
-                <td id="least">100</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class="table table-striped border shadow table-dark">
+              <thead>
+                <tr>
+                  <th colspan="2">
+                    Stats For <span id="location">All Events</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total Attendance</td>
+                  <td id="total">100</td>
+                </tr>
+                <tr>
+                  <td>Average Attendance</td>
+                  <td id="average">100</td>
+                </tr>
+                <tr>
+                  <td>Most Attendance</td>
+                  <td id="most">100</td>
+                </tr>
+                <tr>
+                  <td>Least Attendance</td>
+                  <td id="least">100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div
-          class="col-sm-6 order-sm-last order-first d-flex justify-content-end"
+          class="fullWidthLogo col-sm-6 d-flex justify-content-center"
         >
           <img
-            src="/img/EventNestLogo.svg"
-            class="img-fluid appLogo border rounded-5"
+            src="/img/EventNestLogoTransparent.svg"
+            class="img-fluid appLogo"
           />
         </div>
       </div>
