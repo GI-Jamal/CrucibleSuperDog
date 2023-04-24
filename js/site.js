@@ -191,7 +191,7 @@ function getEventData() {
 
   if (data == null) {
     let identifiedEvents = events.map((event) => {
-      event.id = generateID();
+      event.id = generateId();
       return event;
     });
     localStorage.setItem("jgSuperDogEvents", JSON.stringify(identifiedEvents));
