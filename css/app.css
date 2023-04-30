@@ -1,0 +1,13 @@
+@media (max-width: 850px) {
+  .fullWidth {
+    flex: 0, 0, auto;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+  .fullWidthLogo {
+    flex: 0, 0, auto;
+    width: 100% !important;
+    order: -1;
+    margin-top: 0 !important;
+  }
+}
