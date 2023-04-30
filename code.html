@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <title>Event Nest: A Coding Challenge by Jamal Gibson</title>
+    <title>APP NAME: A Coding Challenge by Jamal Gibson</title>
 
     <!-- Boostrap CSS -->
     <link
@@ -48,9 +48,8 @@
   <body>
     <!-- Header Banner -->
     <header id="home">
-      <!-- Mobile Navigation Bar -->
       <nav
-        class="navbar navbar-expand-lg fixed-top shadow-lg d-sm-none"
+        class="navbar navbar-expand-lg fixed-top shadow-lg"
         data-bs-theme="dark"
         id="mainNav"
       >
@@ -60,7 +59,7 @@
             href="/index.html"
           >
             <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
-            <span id="appName"> Event Nest</span>
+            <span id="appName"> &nbsp;APP NAME</span>
           </a>
           <button
             class="navbar-toggler"
@@ -78,24 +77,21 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="/index.html"
-                  >Home</a
-                >
+              <li class="nav-item mt-2 mt-lg-0">
+                <a class="nav-link" href="/index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/app.html">The App</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active"
-                  aria-current="page" href="/code.html">The Code</a>
+                <a class="nav-link active" aria-current="page" href="/code.html"
+                  >The Code</a
+                >
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link"
-                  href="https://github.com/GI-Jamal/CrucibleSuperDog"
+                  href="https://github.com/GI-Jamal/CrucibleChallengeTemplate"
                   target="_blank"
                   >The Repo</a
                 >
@@ -112,89 +108,6 @@
                 <a class="nav-link" href="#blog" target="_blank">Blog</a>
               </li>
             </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!-- Desktop Navigation Bar -->
-      <nav
-        class="navbar navbar-expand-lg d-none fixed-top d-sm-block shadow-lg"
-        data-bs-theme="dark"
-        id="mainNav"
-      >
-        <div class="container-xxl">
-          <a
-            class="navbar-brand border-top border-bottom border-white d-flex align-items-center"
-            href="/index.html"
-          >
-            <img src="/img/JG Logo White.svg" class="img-fluid brandImaging" />
-            <span id="appName"> Event Nest</span>
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar"
-            aria-label="Toggle navigation"
-            id="desktopNavToggler"
-          >
-            <span class="navbar-toggler-jg">
-              <i class="bi bi-list"></i>
-            </span>
-          </button>
-          <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasNavbar"
-            aria-labelledby="offcanvasNavbarLabel"
-          >
-            <div class="offcanvas-header">
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-                id="desktopNavClose"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="/index.html"
-                    >Home</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/app.html">The App</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active"
-                    aria-current="page" href="/code.html">The Code</a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="https://github.com/GI-Jamal/CrucibleSuperDog"
-                    target="_blank"
-                    >The Repo</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="https://jamalgibson-portfolio.netlify.app/"
-                    target="_blank"
-                    >About</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#blog" target="_blank">Blog</a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </nav>
@@ -326,7 +239,7 @@ function getEventData() {
 
   if (data == null) {
     let identifiedEvents = events.map((event) => {
-      event.id = generateID();
+      event.id = generateId();
       return event;
     });
     localStorage.setItem("jgSuperDogEvents", JSON.stringify(identifiedEvents));
@@ -385,11 +298,9 @@ function saveNewEvent() {
   let stateIndex = stateSelect.selectedIndex;
   let state = stateSelect.options[stateIndex].text;
 
-  
-
-  let date = new Date(document
-    .getElementById("newEventDate")
-    .value + 'T00:00').toLocaleDateString();
+  let date = new Date(
+    document.getElementById("newEventDate").value + "T00:00"
+  ).toLocaleDateString();
 
   let newEvent = {
     event: name,
@@ -397,7 +308,7 @@ function saveNewEvent() {
     state: state,
     attendance: attendance,
     date: date,
-    id: generateId()
+    id: generateId(),
   };
 
   let events = getEventData();
@@ -408,7 +319,7 @@ function saveNewEvent() {
 
   buildDropDown();
 
-  document.getElementById('newEventForm').reset();
+  document.getElementById("newEventForm").reset();
 }
 
 function generateId() {
@@ -462,7 +373,7 @@ function deleteEvent() {
 }
 
 function updateEvent() {
-  let eventId = document.getElementById('editEventId').value
+  let eventId = document.getElementById("editEventId").value;
 
   let name = document.getElementById("editEventName").value;
   let city = document.getElementById("editEventCity").value;
@@ -477,7 +388,7 @@ function updateEvent() {
   let state = stateSelect.options[stateIndex].text;
 
   let date = new Date(
-    document.getElementById("editEventDate").value + 'T00:00'
+    document.getElementById("editEventDate").value + "T00:00"
   ).toLocaleDateString();
 
   let newEvent = {
@@ -486,24 +397,24 @@ function updateEvent() {
     state: state,
     attendance: attendance,
     date: date,
-    id: eventId
+    id: eventId,
   };
 
   let currentEvents = getEventData();
 
-  let index = currentEvents.findIndex(event => event.id == eventId);
+  let index = currentEvents.findIndex((event) => event.id == eventId);
 
   currentEvents[index] = newEvent;
 
-  localStorage.setItem('jgSuperDogEvents', JSON.stringify(currentEvents));
+  localStorage.setItem("jgSuperDogEvents", JSON.stringify(currentEvents));
 
-  buildDropDown()
+  buildDropDown();
 }
             </code>
           </pre>
         </div>
         <div class="col-lg-4 col-12 mt-2">
-          <p>The code is structured in eleven functions:</p>
+         <p>The code is structured in eleven functions:</p>
           <hr />
           <h5>buildDropDown():</h5>
           <p>
@@ -593,7 +504,7 @@ function updateEvent() {
       </div>
     </main>
 
-    <!-- TODO: fix footer stuff -->
+    <!-- Footer -->
     <footer>
       <div class="container-xxl">
         <div
